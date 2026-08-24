@@ -1,0 +1,49 @@
+=======================================================
+  Bước 4: Guardrails AI Validators
+=======================================================
+
+=======================================================
+  JSON REPAIR DEMO
+=======================================================
+
+[Valid JSON] ✅ Pass
+  Input:  {"name": "Alice", "age": 30}
+  Output: {
+  "name": "Alice",
+  "age": 30
+}
+  Parse check: ✅ json.loads passed
+  🔧 JSON đã được sửa thành công
+
+[Markdown fences] ✅ Pass
+  Input:  ```json
+{"name": "Bob"}
+```
+  Output: {
+  "name": "Bob"
+}
+  Parse check: ✅ json.loads passed
+  🔧 JSON đã được sửa thành công
+
+[Single quotes] ✅ Pass
+  Input:  {'name': 'Charlie', 'score': 95}
+  Output: {
+  "name": "Charlie",
+  "score": 95
+}
+  Parse check: ✅ json.loads passed
+  🔧 JSON đã được sửa thành công
+
+[Trailing comma] ✅ Pass
+  Input:  {"key": "value",}
+  Output: {
+  "key": "value"
+}
+  Parse check: ✅ json.loads passed
+
+[Truly invalid] ✅ Pass
+  Input:  This is not JSON at all: ??? {]
+  Output: {"error": "Khong the phan tich JSON", "raw": "This is not JSON at all: ??? {]"}
+  Parse check: ✅ json.loads passed
+
+✅ Bước 4 hoàn thành!
